@@ -1,5 +1,6 @@
 package com.example.practiceeverything.web.domain.file;
 
+import com.example.practiceeverything.domain.file.dto.FileDto;
 import com.example.practiceeverything.domain.file.entity.FileEntity;
 import com.example.practiceeverything.domain.file.service.FileService;
 import lombok.RequiredArgsConstructor;
@@ -19,12 +20,13 @@ public class FileController {
     private final FileService fileService;
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<String> uploadFile(FileDto fileDto) {
         try {
-            FileEntity savedFile = fileService.saveFile(file);
+            FileEntity savedFile = fileService.saveFile(fileDto);
             return ResponseEntity.ok("File uploaded successfully: " + savedFile.getFileId());
         } catch (IOException e) {
             return ResponseEntity.status(500).body("Failed to upload file");
         }
     }
+
 }
