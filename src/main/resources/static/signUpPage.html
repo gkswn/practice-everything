@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 300px;
+        }
+        .container h2 {
+            margin-bottom: 20px;
+        }
+        .container input[type="text"], .container input[type="password"], .container input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .container a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>회원가입</h2>
+    <form action="/signUp" method="POST">
+        <label for="inetId">아이디:</label>
+        <input type="text" id="inetId" name="inetId" required>
+        <label for="email">이메일:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="pwd">비밀번호:</label>
+        <input type="password" id="pwd" name="pwd" required>
+        <label for="pwdChk">비밀번호 확인:</label>
+        <input type="password" id="pwdChk" name="pwdChk" required>
+        <input type="submit" value="회원가입">
+    </form>
+    <a href="login.html">로그인</a>
+</div>
+</body>
+</html>
