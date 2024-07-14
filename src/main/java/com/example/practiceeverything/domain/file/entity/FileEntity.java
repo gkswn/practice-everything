@@ -14,15 +14,14 @@ import lombok.NoArgsConstructor;
 public class FileEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String fileId;
 
+    private String fileName;
+
     @Lob
     private byte[] file;
-
-
-
 
 }

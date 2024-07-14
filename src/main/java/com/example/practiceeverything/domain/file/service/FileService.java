@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
 
 @Service
@@ -15,11 +14,15 @@ import java.io.IOException;
 public class FileService {
     private final FileRepository fileRepository;
 
-    public FileEntity saveFile(FileDto fileDto) throws IOException {
+    public FileEntity saveFile(MultipartFile file) throws IOException {
         FileEntity fileEntity = FileEntity.builder()
-                .fileId(fileDto.getFile().getOriginalFilename())
-                .file(fileDto.getFile().getBytes())
+                .fileName(file.getOriginalFilename())
+                .file(file.getBytes())
                 .build();
         return fileRepository.save(fileEntity);
+    }
+
+    public FileEntity getFileById(Long id) {
+        return fileRepository.findById(id).orElseThrow(() -> new RuntimeException("File not found with id " + id));
     }
 }
