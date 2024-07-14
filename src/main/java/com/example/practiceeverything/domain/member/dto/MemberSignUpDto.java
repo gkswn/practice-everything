@@ -9,14 +9,14 @@ import lombok.Getter;
 @Builder
 @AllArgsConstructor
 public class MemberSignUpDto {
-    private Long inetId;
+    private String inetId;
     private String pwd;
     private String pwdChk;
     private String email;
 
     public MemberEntity toEntity() {
         return MemberEntity.builder()
-                .id(this.inetId)
+                .inetId(this.inetId)
                 .email(this.email)
                 .pwd(this.pwd)
                 .build();

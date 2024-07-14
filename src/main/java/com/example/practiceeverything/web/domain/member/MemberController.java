@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.lang.reflect.Member;
 
 @RestController
-@RequestMapping("/member")
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;
@@ -26,8 +25,7 @@ public class MemberController {
     @PostMapping("/signUp")
     public String signUp(MemberSignUpDto memberSignUpDto) {
         memberService.createMember(memberSignUpDto);
-        return "회원가입이 완료되었습니다.";
-        //todo 회원가입 완료 페이지 만들기
+        return "loginPage.html";
     }
 
 }

@@ -1,9 +1,6 @@
 package com.example.practiceeverything.domain.member.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,13 +14,13 @@ import lombok.NoArgsConstructor;
 public class MemberEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column
     private String inetId;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
     @Column

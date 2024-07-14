@@ -18,7 +18,7 @@ public class MemberService {
     public void createMember(MemberSignUpDto memberSignUpDto) {
 
         if (!memberSignUpDto.getPwd().equals(memberSignUpDto.getPwdChk())) {
-            throw new MemberException();
+            throw new RuntimeException();
         }
         memberRepository.save(memberSignUpDto.toEntity());
     }
